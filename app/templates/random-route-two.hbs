@@ -1,16 +1,1 @@
-{{#link-to "random-route"}}
-	page one
-{{/link-to}}
-
-<br><br>
-
-{{#each model as |p|}}
-<div>
-	<span>{{p.id}}</span>
-	<a href="#" {{action "setPerson" p}}>{{p.name}}</a>
-</div>
-{{/each}}
-
-<br>
-
-{{person-view-comp person=person}}
+{{page-comp model=model}}

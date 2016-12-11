@@ -76,6 +76,15 @@ define('issue-demo/components/app-version', ['exports', 'ember-cli-app-version/c
     name: name
   });
 });
+define("issue-demo/components/page-comp", ["exports", "ember"], function (exports, _ember) {
+	exports["default"] = _ember["default"].Component.extend({
+		actions: {
+			setPerson: function setPerson(person) {
+				this.set("person", person);
+			}
+		}
+	});
+});
 define("issue-demo/components/person-view-comp", ["exports", "ember"], function (exports, _ember) {
 	exports["default"] = _ember["default"].Component.extend({
 
@@ -84,23 +93,11 @@ define("issue-demo/components/person-view-comp", ["exports", "ember"], function 
 		}).observes("person.id")
 	});
 });
-define("issue-demo/controllers/random-route-two", ["exports", "ember"], function (exports, _ember) {
-	exports["default"] = _ember["default"].Controller.extend({
-		actions: {
-			setPerson: function setPerson(person) {
-				this.set("person", person);
-			}
-		}
-	});
+define('issue-demo/controllers/random-route-two', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({});
 });
-define("issue-demo/controllers/random-route", ["exports", "ember"], function (exports, _ember) {
-	exports["default"] = _ember["default"].Controller.extend({
-		actions: {
-			setPerson: function setPerson(person) {
-				this.set("person", person);
-			}
-		}
-	});
+define('issue-demo/controllers/random-route', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({});
 });
 define('issue-demo/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
   exports['default'] = _emberInflectorLibHelpersPluralize['default'];
@@ -342,14 +339,17 @@ define('issue-demo/services/i18n', ['exports', 'ember-i18n/services/i18n'], func
     }
   });
 });
+define("issue-demo/templates/components/page-comp", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template({ "id": "ut759Nc0", "block": "{\"statements\":[[\"block\",[\"link-to\"],[\"random-route\"],null,2],[\"block\",[\"link-to\"],[\"random-route-two\"],null,1],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"block\",[\"each\"],[[\"get\",[\"model\"]]],null,0],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"append\",[\"helper\",[\"person-view-comp\"],null,[[\"person\"],[[\"get\",[\"person\"]]]]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"open-element\",\"div\",[]],[\"flush-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"span\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"id\"]],false],[\"close-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"a\",[]],[\"static-attr\",\"href\",\"#\"],[\"modifier\",[\"action\"],[[\"get\",[null]],\"setPerson\",[\"get\",[\"p\"]]]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"name\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[\"p\"]},{\"statements\":[[\"text\",\"\\tpage two\\n\"]],\"locals\":[]},{\"statements\":[[\"text\",\"\\tpage one\\n\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/components/page-comp.hbs" } });
+});
 define("issue-demo/templates/components/person-view-comp", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template({ "id": "Dzl9nSPL", "block": "{\"statements\":[[\"text\",\"Person view: \"],[\"append\",[\"unknown\",[\"person\",\"name\"]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/components/person-view-comp.hbs" } });
 });
 define("issue-demo/templates/random-route-two", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template({ "id": "ugCQdxD3", "block": "{\"statements\":[[\"block\",[\"link-to\"],[\"random-route\"],null,1],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"block\",[\"each\"],[[\"get\",[\"model\"]]],null,0],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"append\",[\"helper\",[\"person-view-comp\"],null,[[\"person\"],[[\"get\",[\"person\"]]]]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"open-element\",\"div\",[]],[\"flush-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"span\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"id\"]],false],[\"close-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"a\",[]],[\"static-attr\",\"href\",\"#\"],[\"modifier\",[\"action\"],[[\"get\",[null]],\"setPerson\",[\"get\",[\"p\"]]]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"name\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[\"p\"]},{\"statements\":[[\"text\",\"\\tpage one\\n\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/random-route-two.hbs" } });
+  exports["default"] = Ember.HTMLBars.template({ "id": "bIArECPx", "block": "{\"statements\":[[\"append\",[\"helper\",[\"page-comp\"],null,[[\"model\"],[[\"get\",[\"model\"]]]]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/random-route-two.hbs" } });
 });
 define("issue-demo/templates/random-route", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template({ "id": "Y8KZ9a/5", "block": "{\"statements\":[[\"block\",[\"link-to\"],[\"random-route-two\"],null,1],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"block\",[\"each\"],[[\"get\",[\"model\"]]],null,0],[\"text\",\"\\n\"],[\"open-element\",\"br\",[]],[\"flush-element\"],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"append\",[\"helper\",[\"person-view-comp\"],null,[[\"person\"],[[\"get\",[\"person\"]]]]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"open-element\",\"div\",[]],[\"flush-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"span\",[]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"id\"]],false],[\"close-element\"],[\"text\",\"\\n\\t\"],[\"open-element\",\"a\",[]],[\"static-attr\",\"href\",\"#\"],[\"modifier\",[\"action\"],[[\"get\",[null]],\"setPerson\",[\"get\",[\"p\"]]]],[\"flush-element\"],[\"append\",[\"unknown\",[\"p\",\"name\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[\"p\"]},{\"statements\":[[\"text\",\"\\tpage two\\n\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/random-route.hbs" } });
+  exports["default"] = Ember.HTMLBars.template({ "id": "l+Wn/o9S", "block": "{\"statements\":[[\"append\",[\"helper\",[\"page-comp\"],null,[[\"model\"],[[\"get\",[\"model\"]]]]],false]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "issue-demo/templates/random-route.hbs" } });
 });
 define('issue-demo/utils/i18n/compile-template', ['exports', 'ember-i18n/utils/i18n/compile-template'], function (exports, _emberI18nUtilsI18nCompileTemplate) {
   Object.defineProperty(exports, 'default', {
@@ -399,7 +399,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("issue-demo/app")["default"].create({"name":"issue-demo","version":"0.0.0+b9fbf1ee"});
+  require("issue-demo/app")["default"].create({"name":"issue-demo","version":"0.0.0+9dfb783a"});
 }
 
 /* jshint ignore:end */
